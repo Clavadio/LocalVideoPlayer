@@ -10,12 +10,12 @@
         <a class="nav-link" href="index.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../tvShow.php">Tv Shows</a>
+        <a class="nav-link" href="tvShow.php">Tv Shows</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../pictures.php">Pictures</a>
+        <a class="nav-link" href="pictures.php">Pictures</a>
       </li>
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Resume
         </a>
@@ -25,11 +25,10 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
           <?php
-          $_SESSION['isloggedin'] = true;
-          if($_SESSION['isloggedin'] == true){
+          if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         echo '<a class="nav-link" href="Account.php">Account</a>';
             }
             else{

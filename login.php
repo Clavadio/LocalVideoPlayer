@@ -19,11 +19,11 @@ require_once './_partials/header.php';
   align-items: center';>
 <form action="./_partials/handlelogin.php" method="POST">
   <div class="form-outline mb-4">
-    <input type="email" name="username" id="username" class="form-control" placeholder="Email address"/>
+    <input type="text" name="user" class="form-control" placeholder="Email address"/>
   </div>
 
   <div class="form-outline mb-4">
-    <input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
+    <input type="password" name="pass" class="form-control" placeholder="Password"/>
     
   </div>
 
