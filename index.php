@@ -38,11 +38,11 @@ require_once './_partials/header.php';
 $path = "/opt/lampp/htdocs/Projects/MoviePlayer/Movies/Movies";
 $files = scandir($path);
 $files = array_diff(scandir($path), array('.', '..'));
-echo "<div class='row'>";
+echo "<div class='row bg-secondary'>";
 foreach($files as $file){
 if(strtolower(end(explode(".",$file))) =="mp4") {
   echo "
-  <div class='p-4 bg-secondary text-dark col-md-2 mx-1d-flex flex-column align-items-center justify-content-center'>
+  <div class='p-4 text-dark col-md-2 mx-1d-flex flex-column align-items-center justify-content-center'>
   <a href='player.php?movieName=$file'> 
   <img style=' height:75%' src='./Thumbnails/$file.png' class='card-img-top rounded' alt='img'></a>
   <div class='card-body '>

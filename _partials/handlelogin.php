@@ -6,13 +6,16 @@ $sql = "SELECT * FROM `users` WHERE `User`='$user' AND `Pass`='$pass'";
 $result = $conn->query($sql);
 $num = $result->num_rows;
 echo $num;
-if ($num==0) {
-   header ('location:../pictures.php');
+if ($num==1) {
+    session_start();
+    $_SESSION['isloggedin']=1;
+    $_SESSION['xyz']=$user;
+    header ('location:../index.php');
+    exit();
+   
 }
 else {
-    session_start();
-    $_SESSION['isloggedin']=true;
-    $_SESSION['xyz']=$user;
-   header ('location:../index.php');
+    $_SESSION['isloggedin']=0;
+    header ('location:../pictures.php');
 }
 ?>

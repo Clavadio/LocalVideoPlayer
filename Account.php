@@ -11,6 +11,17 @@
 <?php
 require_once './_partials/header.php';
 ?>
+
+<?php
+session_start();
+if(isset ($_SESSION['isloggedin']) && $_SESSION['isloggedin']==1){
+    require_once 'connection.php';
+    $user = $_SESSION['xyz'];
+    $sql = "SELECT * FROM `users` WHERE `User`='$user'";
+    $result = $conn->query($sql);
+    while ($row = $res->fetch_assoc()) {
+    }
+?>
 </body>
-testing
+
 </html>
