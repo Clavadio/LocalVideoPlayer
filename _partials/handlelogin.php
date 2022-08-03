@@ -15,7 +15,8 @@ if ($num==1) {
    
 }
 else {
+    $err="Invalid Credentials";
     $_SESSION['isloggedin']=0;
-    header ('location:../pictures.php');
+    header ("location:../login.php?err=$err");
 }
 ?>
