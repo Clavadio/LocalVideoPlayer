@@ -41,12 +41,13 @@ $files = array_diff(scandir($path), array('.', '..'));
 echo "<div class='row bg-secondary'>";
 foreach($files as $file){
 if(strtolower(end(explode(".",$file))) =="mp4") {
+  $viewable_file = substr($file, 0, strpos($file, "("));
   echo "
   <div class='p-4 text-dark col-md-2 mx-1d-flex flex-column align-items-center justify-content-center'>
   <a href='player.php?movieName=$file'> 
   <img style=' height:75%' src='./Thumbnails/$file.png' class='card-img-top rounded' alt='img'></a>
   <div class='card-body '>
-  <a href='player.php?movieName=$file' class='btn btn-primary btn-block'>$file</a>
+  <a href='player.php?movieName=$file' class='btn btn-primary btn-block'>$viewable_file</a>
   </div>
   </div>";
 }

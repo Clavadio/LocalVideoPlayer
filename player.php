@@ -11,25 +11,32 @@
 <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 <?php
 require_once './_partials/header.php';
+          session_start();
+          if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin']==1){
+          $i = $_GET['movieName'];
+          echo "
+          <br><video style=margin-left:10%;width:75%;height:25% controls=controls/>
+          <source type='video/mp4' src='./Movies/Movies/$i'>
+          <source type='video/webm' src='./Movies/Movies/$i'>
+          <track src='./Movies/Movies/$i.vtt' label='English' kind='subtitles' srclang='en' default >
+          </video>";
+          echo"
+          <html>
+          <head>
+          <title>$i</title>
 
-$i = $_GET['movieName'];
-echo "
+          </head>
+          <body>
 
-<br><video style=margin-left:10%;width:75%;height:25% controls=controls/>
-<source type='video/mp4' src='./Movies/Movies/$i'>
-<source type='video/webm' src='./Movies/Movies/$i'>
-<track src='./Movies/Movies/$i.vtt' label='English' kind='subtitles' srclang='en' default >
-</video>";
-echo"
-<html>
-<head>
-    <title>$i</title>
+          </body>
+          </html>";
+          }
+            else{
+              $err="Login Required";
+              header("location:./login.php?err=$err");
 
-</head>
-<body>
+            }
 
-</body>
-</html>";
 
 ?>
 
