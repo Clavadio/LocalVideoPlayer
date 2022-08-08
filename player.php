@@ -14,12 +14,22 @@ require_once './_partials/header.php';
           session_start();
           if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin']==1){
           $i = $_GET['movieName'];
-          echo "
+          if(isset($_GET['season'])&& (isset($_GET['episode']))){
+            echo "show
           <br><video style=margin-left:10%;width:75%;height:25% controls=controls/>
           <source type='video/mp4' src='./Movies/Movies/$i'>
           <source type='video/webm' src='./Movies/Movies/$i'>
           <track src='./Movies/Movies/$i.vtt' label='English' kind='subtitles' srclang='en' default >
           </video>";
+          }
+          else{
+          echo "movie
+          <br><video style=margin-left:10%;width:75%;height:25% controls=controls/>
+          <source type='video/mp4' src='./Movies/Movies/$i'>
+          <source type='video/webm' src='./Movies/Movies/$i'>
+          <track src='./Movies/Movies/$i.vtt' label='English' kind='subtitles' srclang='en' default >
+          </video>";
+          }
           echo"
           <html>
           <head>
