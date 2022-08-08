@@ -6,7 +6,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <a class="nav-link" href="index.php">Home</a>
+        <a class="nav-link" href="index.php">Movies</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="tvShow.php">Tv Shows</a>
@@ -19,8 +19,11 @@
           session_start();
           if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin']==1){
             $user=$_SESSION['xyz'];
-            echo "<a class='nav-link' href='Account.php'>$user</a>
-            <a class='btn btn-primary mx-2' href='./_partials/handleLogout.php'>logout</a>";
+            echo "
+            <li><a class='nav-link' href='Account.php'>$user</a></li>
+            <li>
+            <a class='btn btn-primary' href='./_partials/handleLogout.php'>Logout</a>
+            </li>";
             
           }
             else{

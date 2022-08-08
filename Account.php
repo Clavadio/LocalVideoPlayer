@@ -15,13 +15,24 @@ require_once './_partials/header.php';
 <?php
 session_start();
 if(isset ($_SESSION['isloggedin']) && $_SESSION['isloggedin']==1){
-    require_once 'connection.php';
+    require_once './_partials/connection.php';
     $user = $_SESSION['xyz'];
     $sql = "SELECT * FROM `users` WHERE `User`='$user'";
     $result = $conn->query($sql);
-    while ($row = $res->fetch_assoc()) {
+    $numrows=$result->num_rows;
+    while($row = $result->fetch_assoc()){
+    $user_type=$row['user_type'];
     }
+    if($user_type=='admin'){
+        echo"You are an admin";
+    }
+    elseif($user_type=='regular'){
+        echo"You are an regular";
+    }
+    //exec('/usr/bin/python3 /var/www/python_test.py "' . $input_val . '"'); // note extra single quotes
+}
 ?>
+
 </body>
 
 </html>
