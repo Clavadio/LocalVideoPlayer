@@ -13,21 +13,23 @@
 require_once './_partials/header.php';
           session_start();
           if(isset($_SESSION['isloggedin']) && $_SESSION['isloggedin']==1){
-          $i = $_GET['movieName'];
-          if(isset($_GET['season'])&& (isset($_GET['episode']))){
-            echo "show
+          $movieName = $_GET['movieName'];
+          if(isset($_GET['season'])&&($_GET['episode'])){
+            $season=$_GET['season'];
+            $episode=$_GET['episode'];
+            echo "
           <br><video style=margin-left:10%;width:75%;height:25% controls=controls/>
-          <source type='video/mp4' src='./Movies/Movies/$i'>
-          <source type='video/webm' src='./Movies/Movies/$i'>
-          <track src='./Movies/Movies/$i.vtt' label='English' kind='subtitles' srclang='en' default >
+          <source type='video/mp4' src='./Movies/Tv Shows/$movieName/$season/$episode'>
+          <source type='video/webm' src='./Movies/Tv Shows/$movieName/$season/$episode'>
+          <track src='./Movies/Tv Shows/$movieName/$season/$episode.vtt' label='English' kind='subtitles' srclang='en' default >
           </video>";
           }
           else{
           echo "movie
           <br><video style=margin-left:10%;width:75%;height:25% controls=controls/>
-          <source type='video/mp4' src='./Movies/Movies/$i'>
-          <source type='video/webm' src='./Movies/Movies/$i'>
-          <track src='./Movies/Movies/$i.vtt' label='English' kind='subtitles' srclang='en' default >
+          <source type='video/mp4' src='./Movies/Movies/$movieName'>
+          <source type='video/webm' src='./Movies/Movies/$movieName'>
+          <track src='./Movies/Movies/$movieName.vtt' label='English' kind='subtitles' srclang='en' default >
           </video>";
           }
           echo"
