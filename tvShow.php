@@ -25,30 +25,36 @@
 require_once './_partials/header.php';
 ?>
 <?php
+function sortByLength($a,$b){
+    return strlen($b)-strlen($a);
+}
+
 if(isset($_GET['movieName'])){
 echo"<a type='button' href='tvShow.php' class='btn btn-primary'>Back</a>";
  $moviename=$_GET['movieName'];
  $show_path = "/opt/lampp/htdocs/Projects/MoviePlayer/Movies/TV Shows/$moviename";
  $season_files = scandir($show_path);
  $season_files = array_diff(scandir($show_path), array('.', '..'));
- echo "<div class='row'>";
  foreach($season_files as $season){
-   
+    echo "<div class='row'>";
     echo"<div class='btn btn-primary btn-circle btn-xl'>
     <p class='btn btn-primary btn-block'>$season</p>";
         $episode_path = "/opt/lampp/htdocs/Projects/MoviePlayer/Movies/TV Shows/$moviename/$season";
         $episode_files = scandir($episode_path);
         $episode_files = array_diff(scandir($episode_path), array('.', '..'));
+        echo"</div>";
     foreach($episode_files as $episode){
-        echo" <div class='p-4 text-dark col-md-2 mx-1d-flex flex-column align-items-center justify-content-center'>
+        $viewable_file = substr($episode, 0);
+        echo" <div class='p-4 text-dark col-md-2 align-items-center justify-content-center'>
         <a href='player.php?movieName=$moviename&season=$season&episode=$episode'
-       >$episode</a>
+       >$viewable_file</a>
         </div>";
         
     }
+    
     echo"</div>";
   }
-echo"</div>";
+
 }
     else{
         $path = "/opt/lampp/htdocs/Projects/MoviePlayer/Movies/TV Shows";

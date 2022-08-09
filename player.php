@@ -25,7 +25,7 @@ require_once './_partials/header.php';
           </video>";
           }
           else{
-          echo "movie
+          echo "
           <br><video style=margin-left:10%;width:75%;height:25% controls=controls/>
           <source type='video/mp4' src='./Movies/Movies/$movieName'>
           <source type='video/webm' src='./Movies/Movies/$movieName'>
