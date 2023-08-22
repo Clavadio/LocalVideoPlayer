@@ -17,7 +17,7 @@ require_once './_partials/header.php';
 
 <?php
 $path = "/opt/lampp/htdocs/Projects/MoviePlayer/Movies/Pictures";
-$files = scandir($path);
+// $files = scandir($path);
 $files = array_diff(scandir($path), array('.', '..'));
 echo "<div class='row bg-secondary'>";
 foreach($files as $file){
